@@ -49,10 +49,6 @@ today = datetime.date.today()
 pushg = {}
 pushb = {}
 
-db = conn.test
-db.pttaar.drop()
-db.pttarr.drop()
-
 def writemain_db(nosqlmain):
     #print (nosqlmain)
     db = conn.test 
@@ -543,7 +539,11 @@ def cutword(main_content,title,jiebatf,a,arr,aar,link):
 
 
 def pttmain(key):  
-
+        
+       db = conn.test
+       db.pttaar.drop()
+       db.pttarr.drop()
+  
         ParsingPage = 10
     
         start_time = time.time()
