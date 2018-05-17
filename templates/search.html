@@ -3,11 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>輸出資料</title>
+<style type="text/css">
+body {
+  min-height: calc(100vh - 70px);
+  padding: 40px 40px 0 40px;
+}
+footer {
+  position:fixed;
+  bottom: 0px;
+}
+</style>
 </head>
-<body>
+<body class="body">
      <HR color="#000000" size="10" >
-     <h1>PTT八卦版爬蟲</h1>
+     <h1><a href="https://www.ptt.cc/bbs/Gossiping/index.html" target="_blank"><img src="https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/18033917_10154276075946364_7161552148659062401_n.jpg?_nc_cat=0&_nc_eui2=AeFnaVDtOMzqE-ZimQ3GmbRu_Gd-7G5cU_hsHFtcFj999rVoPwSoCmL4bQT4JvTkpspbOeRBWrZzdd-EbiflijmLgbLwpugaduWuKDDGjW1hfA&oh=01e4296af780c02348546b6f6ade4892&oe=5B83C58E" width="100"></a>PTT八卦版爬蟲</h1>
      <HR color="#000000" size="10" >
+     <marquee>{{runtitle}}</marquee>
      <h1>輸入關鍵字</h1>
      <form action="/search" method="get">
         <input type="text" name="q">
@@ -27,4 +38,9 @@
          <p><a href="{{ arr.網址 }}" target="_blank">{{ arr.網址 }}</a></p>
      {% endfor %}
 </body>
+
+<footer class="footer">
+<HR color="#000000" size="10" >
+<h2><a href="http://www.csie.tku.edu.tw/main.php" target="_blank"><img src="http://www2.tku.edu.tw/~teix/CSIE/images/stories/CSIElogo2008.jpg" width="50"></a>製作:淡江大學資訊工程系40412370周廷威</h2>
+</footer>
 </html>
