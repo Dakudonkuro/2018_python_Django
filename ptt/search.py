@@ -65,7 +65,14 @@ rs = requests.session()
  
 # 表单
 def search_form(request):
-    return render_to_response('search_form.html')
+    db = conn.test
+    runtitle = []
+    for tit in db.ptttitle.find():
+            title = tit['title']
+            runtitle.append(title)
+    return render(request, 'search_form.html',{
+        'runtitle': str(runtitle),
+    })
  
 # 接收请求数据
 def search(request):  
@@ -79,15 +86,20 @@ def search(request):
         
         messageaar = []
         messagearr = []
+        runtitle = []
         for aarr in db.pttaar.find():
             messageaar.append(aarr)
         for arar in db.pttarr.find():
             messagearr.append(arar)
+        for tit in db.ptttitle.find():
+            title = tit['title']
+            runtitle.append(title)
         return render(request, 'search.html', {
         'aardata': messageaar,
         'arrdata': messagearr,
+        'runtitle': str(runtitle),
     })
 
     else:
-        message = '你提交了空表单'
+        message = '你沒有輸入'
     return HttpResponse(message)
