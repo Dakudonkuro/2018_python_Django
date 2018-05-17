@@ -568,7 +568,7 @@ def pttmain(key):
             page_url = 'https://www.ptt.cc/bbs/' + PttName + '/index' + str(index) + '.html'
             writepageurl_db({"board": PttName,"page_url":page_url,"crawldate":str(today)})
             #print('page_url',page_url)
-            index_list.append(page_url)
+            index_list[0] = page_url
             break
 
         #store('[\n')
