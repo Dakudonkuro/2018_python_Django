@@ -5,8 +5,7 @@
 <title>輸出資料</title>
 <style type="text/css">
 body {
-  min-height: calc(100vh - 70px);
-  padding: 40px 40px 0 40px;
+  padding-bottom：100px;
 }
 footer {
   position:fixed;
@@ -25,6 +24,7 @@ footer {
         <input type="submit" value="搜索">
     </form>
     <h1>輸出結果</h1>
+    <div style="width:500px;height:450px;overflow-x:hidden;overflow-y:auto;background-color:white;">
     <h3>有搜尋字的標題</h3>
      {% for aar in aardata %}
          <h4>======</h4>
@@ -37,10 +37,11 @@ footer {
          <p>標題 : {{ arr.標題 }}</p>
          <p><a href="{{ arr.網址 }}" target="_blank">{{ arr.網址 }}</a></p>
      {% endfor %}
+     </div>
 </body>
 
 <footer class="footer">
-<HR color="#000000" size="10" >
-<h2><a href="http://www.csie.tku.edu.tw/main.php" target="_blank"><img src="http://www2.tku.edu.tw/~teix/CSIE/images/stories/CSIElogo2008.jpg" width="50"></a>製作:淡江大學資訊工程系40412370周廷威 405417063李暉</h2>
+<div style="text-align:right;"><HR color="#000000" size="10" ></div>
+<div style="text-align:right;"><h2><a href="http://www.csie.tku.edu.tw/main.php" target="_blank"><img src="http://www2.tku.edu.tw/~teix/CSIE/images/stories/CSIElogo2008.jpg" width="50"></a>製作:淡江大學資訊工程系40412370周廷威</h2></div>
 </footer>
 </html>
