@@ -71,7 +71,7 @@ def search_form(request):
             link = hot['link']
             sonum = 0
             for selectsort in sorttitle:
-                if selectsort != selectsort['title']:
+                if hottitle != selectsort['title']:
                     sonum += 1
             if sonum == len(sorttitle):
                 sorttitle.append({"title":hottitle,"hot":hotnum,"link":link})
@@ -122,7 +122,7 @@ def search(request):
             link = hot['link']
             sonum = 0
             for selectsort in sorttitle:
-                if selecttitle != selectsort['title']:
+                if hottitle != selectsort['title']:
                     sonum += 1
             if sonum == len(sorttitle):
                 sorttitle.append({"title":hottitle,"hot":hotnum,"link":link})
