@@ -47,11 +47,6 @@ conn = MongoClient('localhost',27017)
 PttName = 'Gossiping'
 today = datetime.date.today()
 
-pushg = {}
-pushb = {}
-        
-db = conn.test 
-
 requests.packages.urllib3.disable_warnings()
 
 load = {
@@ -85,10 +80,15 @@ def search(request):
         
         for select in db.pttselectdata.find():
             if select['keyword'] == m:
+                senum = 0
                 point = select['point']
                 selecttitle = select['title']
                 link = select['link']
-                selectdata.append({"point":point,"title":selecttitle,"link":link})
+                for selectright in selectdata:
+                    if selecttitle != selectright['title']:
+                        senum += 1
+                if senum == len(selectdata):
+                    selectdata.append({"point":point,"title":selecttitle,"link":link})
         
         sorted_p = sorted(selectdata, key=operator.itemgetter("point"), reverse=True)
         
