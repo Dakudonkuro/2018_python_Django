@@ -52,9 +52,6 @@ pushb = {}
         
 db = conn.test 
 
-db.pttaar.drop()
-db.pttarr.drop()
-
 requests.packages.urllib3.disable_warnings()
 
 load = {
