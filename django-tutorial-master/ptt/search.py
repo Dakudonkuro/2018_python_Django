@@ -148,6 +148,36 @@ def search(request):
     })
 
     else:
+        pttsort()
         pttmain()
-        message = '資料更新中'
-    return HttpResponse(message)
+        db = conn.test
+        runtitle = []
+        sorttitle = []
+        sortfive = []
+        for tit in db.ptttitle.find():
+                title = tit['title']
+                runtitle.append(title)
+        for hot in db.ptttitlesort.find():
+                hottitle = hot['title']
+                hotnum = hot['hot']
+                link = hot['link']
+                sonum = 0
+                for selectsort in sorttitle:
+                    if hottitle != selectsort['title']:
+                        if hottitle != "no title":
+                            sonum += 1
+                if sonum == len(sorttitle):
+                    sorttitle.append({"title":hottitle,"hot":hotnum,"link":link})
+        
+        sorted_s = sorted(sorttitle, key=operator.itemgetter("hot"), reverse=True)
+        
+        five = 0
+        for hotfive in sorted_s:
+            five += 1
+            sortfive.append(hotfive)
+            if five == 10:
+                break
+        return render(request, 'search_form.html',{
+                'runtitle': str(runtitle),
+                'hot':sortfive,
+        })
