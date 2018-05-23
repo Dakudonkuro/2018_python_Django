@@ -19,10 +19,12 @@ footer {
      <HR color="#000000" size="10" >
      <marquee>{{runtitle}}</marquee>
      <HR color="#000000" size="5" >
-     <h4>熱門文章 : </h4>
+     <h4>前十名熱門文章 : </h4>
+     <div style="width:500px;height:100px;overflow-x:hidden;overflow-y:auto;background-color:white;">
      {% for three in hot %}
          <p>推文數 : {{ three.hot }} <a href="{{ three.link }}" target="_blank">{{three.title }}</a></p>
      {% endfor %}
+     </div>
      <h1>輸入關鍵字</h1>
      <form action="/search" method="get">
         <input type="submit" value="更新資料庫">
