@@ -72,7 +72,8 @@ def search_form(request):
             sonum = 0
             for selectsort in sorttitle:
                 if hottitle != selectsort['title']:
-                    sonum += 1
+                    if hottitle != "no title":
+                        sonum += 1
             if sonum == len(sorttitle):
                 sorttitle.append({"title":hottitle,"hot":hotnum,"link":link})
         
@@ -82,7 +83,7 @@ def search_form(request):
     for hotfive in sorted_s:
         five += 1
         sortfive.append(hotfive)
-        if five == 3:
+        if five == 10:
             break
     return render(request, 'search_form.html',{
         'runtitle': str(runtitle),
@@ -123,7 +124,8 @@ def search(request):
             sonum = 0
             for selectsort in sorttitle:
                 if hottitle != selectsort['title']:
-                    sonum += 1
+                    if hottitle != "no title":
+                        sonum += 1
             if sonum == len(sorttitle):
                 sorttitle.append({"title":hottitle,"hot":hotnum,"link":link})
         
@@ -133,7 +135,7 @@ def search(request):
         for hotfive in sorted_s:
             five += 1
             sortfive.append(hotfive)
-            if five == 3:
+            if five == 10:
                 break
         
         for tit in db.ptttitle.find():
