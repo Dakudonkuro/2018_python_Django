@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>讀取資料</title>
+<style type="text/css">
+body {
+  padding-bottom：100px;
+} 
+    
+footer {
+  position:fixed;
+  bottom: 0px;
+}
+
+</style>
+</head>
+<body class="body">
+    <HR color="#000000" size="10" >
+     <h1><a href="https://www.ptt.cc/bbs/Gossiping/index.html" target="_blank"><img src="https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/18033917_10154276075946364_7161552148659062401_n.jpg?_nc_cat=0&_nc_eui2=AeFnaVDtOMzqE-ZimQ3GmbRu_Gd-7G5cU_hsHFtcFj999rVoPwSoCmL4bQT4JvTkpspbOeRBWrZzdd-EbiflijmLgbLwpugaduWuKDDGjW1hfA&oh=01e4296af780c02348546b6f6ade4892&oe=5B83C58E" width="100"></a>網路晚報自動產生技術之研究</h1>
+     <HR color="#000000" size="10" >
+     <marquee>{{runtitle}}</marquee>
+     <HR color="#000000" size="5" >
+     <h4>前十名熱門關鍵字 : </h4>
+     <div style="width:500px;height:100px;overflow-x:hidden;overflow-y:auto;background-color:white;">
+     {% for three in hot %}
+         <p>總推文數 : {{ three.hot }}__關鍵字: <a href="http://127.0.0.1:8000/search/?q={{three.key}}" title="輸出資料">{{three.key }}</a></p>
+     {% endfor %}
+     </div>
+    <div style="width:50%;float:right;">
+            <h1>輸入關鍵字</h1>
+             <form action="/search" method="get">
+                <input type="submit" value="更新資料庫">
+            </form>
+            <form action="/search" method="get">
+                <input type="text" name="q">
+                <input type="submit" value="搜索">
+            </form>
+    </div>
+</body>
+<footer class="footer">
+<div style="text-align:right;"><HR color="#000000" size="10" ></div>
+<div style="text-align:right;"><h2><a href="http://www.csie.tku.edu.tw/main.php" target="_blank"><img src="http://www2.tku.edu.tw/~teix/CSIE/images/stories/CSIElogo2008.jpg" width="50"></a>製作:淡江大學資訊工程系40412370周廷威 405417063李暉</h2></div>
+</footer>
+</html>
